@@ -1,0 +1,40 @@
+Name : hiphop_model_x1
+
+Architecture:
+model = Sequential()
+model.add(Embedding(total_words, 200, input_length=max_pad_len-1))
+model.add(Bidirectional(LSTM(150, return_sequences=True)))
+model.add(Bidirectional(LSTM(150)))
+model.add(Dense(total_words, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.01), metrics=['accuracy'])
+history = model.fit(input_sequences, one_hot_labels, epochs=20, verbose=1)
+
+Accuracy : 30% on 50 epochs
+output:
+just do it hoodie eve hoodie hoodie hoodie hoodie hotel hoodie 
+hoodie hotel hotel hotel hotel hotel hotel turn hotel day 
+hotel turn myself lookin' shoot dreams from turn touched 
+from day slummin' touched room'll rock hard mode 
+holding it fuckin' philosophyme woo herself bomb realize 
+four roof sexy indiscretions yeahcome hounds one
+---------------------------
+
+Name : hiphop_model_x2
+
+Architecture:
+model = Sequential()
+model.add(Embedding(total_words, 256, input_length=max_pad_len-1))
+model.add(Bidirectional(LSTM(150)))
+model.add(Dense(total_words, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.01), metrics=['accuracy'])
+history = model.fit(input_sequences, one_hot_labels, epochs=20, verbose=1)
+
+Accuarcy : 66% on 20 epochs
+71% on 30 epochs
+
+output: 
+do you get it so things you're 'em shift 'em 'em everything 'em 
+'em dumb you're i 'em shift 'em 'em 'em dumb inside those yeah 
+oh homie down sunset some eiffel as simple as nursery rhymes buildings mode 
+hello man cousin turned muslim the minute he it's not light off grab alright woo
+---------------------------
