@@ -1,5 +1,7 @@
 Name : hiphop_model_x1
 
+training songs : 100
+
 Architecture:
 model = Sequential()
 model.add(Embedding(total_words, 200, input_length=max_pad_len-1))
@@ -9,17 +11,21 @@ model.add(Dense(total_words, activation='softmax'))
 model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.01), metrics=['accuracy'])
 history = model.fit(input_sequences, one_hot_labels, epochs=20, verbose=1)
 
-Accuracy : 30% on 50 epochs
+Accuracy : 45% on 100 epochs
 output:
-just do it hoodie eve hoodie hoodie hoodie hoodie hotel hoodie 
-hoodie hotel hotel hotel hotel hotel hotel turn hotel day 
-hotel turn myself lookin' shoot dreams from turn touched 
-from day slummin' touched room'll rock hard mode 
-holding it fuckin' philosophyme woo herself bomb realize 
-four roof sexy indiscretions yeahcome hounds one
+i know sometimes 'nother getting hotel 
+works hotel works day day day everybody day 
+indiscretions hotel day works day day day day 
+day wash bomb pockets defendin' 
+some head king ours dealer dealer dealer 
+adhd day slummin' t t t'd police film lil' 
+drum varsity varsity diamond flippin' up kj awayyeah pockets alright
+
 ---------------------------
 
 Name : hiphop_model_x2
+
+training songs : 100
 
 Architecture:
 model = Sequential()
@@ -38,3 +44,60 @@ do you get it so things you're 'em shift 'em 'em everything 'em
 oh homie down sunset some eiffel as simple as nursery rhymes buildings mode 
 hello man cousin turned muslim the minute he it's not light off grab alright woo
 ---------------------------
+
+Name : hiphop_model_x3
+
+training songs : 120
+
+Architecture:
+model = Sequential()
+model.add(Embedding(total_words, 128, input_length=max_pad_len-1))
+model.add(Bidirectional(LSTM(100)))
+model.add(Dense(total_words, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.01), metrics=['accuracy'])
+history = model.fit(input_sequences, one_hot_labels, epochs=20, verbose=1)
+
+Accuracy: 83% on 10 epochs
+
+output:
+pain is red ya hits it meal anyone mercedez races 
+blew whole shotgun inside came three still lambo' 
+some breezy struggles performances wit' roll like swisher 
+oh girl yeah got it hell raise oh yeah oh yeah ooh now i'm one two get high fired yeah
+----------------------------------
+
+Name : rock_model_x1
+
+training songs : 120
+Architecture:
+model = Sequential()
+model.add(Embedding(total_words, 128, input_length=max_pad_len-1))
+model.add(Bidirectional(LSTM(100)))
+model.add(Dense(total_words, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.01), metrics=['accuracy'])
+history = model.fit(input_sequences, one_hot_labels, epochs=20, verbose=1)
+
+Accuracy : 77% on 10 epochs
+
+output:
+life one zero mind you done one love one love 
+see make trouble know up come like time begin ride 
+tell things make right you ooh oh name you miss much case away yes word say hello
+----------------------------------
+
+Name : pop_model_x1
+training songs : 200
+Architecture:
+model = Sequential()
+model.add(Embedding(total_words, 128, input_length=max_pad_len-1))
+model.add(Bidirectional(LSTM(100)))
+model.add(Dense(total_words, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer=Adam(learning_rate=0.01), metrics=['accuracy'])
+history = model.fit(input_sequences, one_hot_labels, epochs=20, verbose=1)
+
+Accuracy : 76% on 10 epochs
+
+output:
+get the cash could baby run i'm hippy nights 
+love we're got day really you love you ooh oh 
+baby oh important you've got that met ooh can't take now baby i'll let go
